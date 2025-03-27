@@ -1,0 +1,59 @@
+div {
+    width: 100px;
+    height: 100px;
+    background-color: #3d405b;
+    border: 2px solid black;
+    margin: 10px;
+    display: inline-block;
+    /*inline block은 inline처럼 힌줄에 배치되지만, 
+    width,height,margin,padding 속성을 모두 가질 수 있음*/
+    color: white;
+}
+
+#middle {
+    background-color: aqua;
+}
+
+#static #middle {
+    position: static;
+    top: 100px;
+}
+
+#relative #middle {
+    position: relative;
+    top: 50px;
+    left: 50px;
+    /* 원래 위치에서 상대적인 위치로 이동한 것  */
+}
+
+#absolute {
+    /*해당 id는 부모 element인 section의 속성*/
+    position: relative;
+    background-color: blueviolet;
+    border: 1px solid black;
+    /* 만약 해당 구문과 같이 static이 아닌 position을 지정해준다면
+    (일반적인 경우 relative) top left에 할당된 값 만큼 여백이 생긴다.
+    해당 구문의 경우 section의 박스를 기준으로 할당된 값만큼 여백을 줌.
+    top에 여백값을 주지 않는 경우 다른 div 구역과 같은 위치에 있음.
+    (top,left값을 할당하지 않는 경우 두번째 div과 세번째 div이 겹쳐있음을 참고) */
+}
+
+#absolute #middle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: tomato;
+    /* absolute는 배치된 공간이 없음.
+    & 조상이 없는 경우에는 초기 컨테이닝 블록에 상대적 위치에 위치한다.
+    즉, static 블록을 기준으로 한 상대적 위치 */
+}
+
+#fixed #middle {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    /* 이 친구는 containing box를 기준으로 위치를 고정한다.
+    즉, absolute 처럼 section이 아니라 body를 기준으로 
+    top left에 할당된 값만큼 이동한 뒤,
+    해당 위치에서 고정됨. 스크롤바를 내려도 그 위치에 고정(내비게이션 바에서 활용)*/
+}

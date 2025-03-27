@@ -1,0 +1,47 @@
+/* h1 {
+    background-color: #f2e8cf;
+    border: 1px black solid;
+    display: inline;
+}
+
+span {
+    background-color: aqua;
+    border: 1px black solid;
+    display: block;
+} */
+span {
+    background-color: palevioletred;
+    border: 1px solid black;
+    width: 500px;
+    padding: 50px;
+    margin: 50px;
+    /*margin은 horizontally(가로에) 영향이 있음*/
+
+}
+
+h1 {
+    background-color: paleturquoise;
+    border: 1px black solid;
+    width: 300px;
+    height: 200px;
+    /* inline 요소와는 다르게 block 요소는 가로 세로 조절이 가능하다 */
+    padding: 50px;
+    /*콘텐츠의 사이즈*/
+    margin: 100px;
+    /*요소 사이 여백의 사이즈*/
+    display: none;
+    /* 요소가 사라지는게 아니라 공간을 차지하지 않게 설정한 것
+    처음 화면에는 보이지 않다가 javascript를 이용하여 보이게끔 설정하는 방법*/
+}
+
+div {
+    width: 200px;
+    height: 200px;
+    background-color: olivedrab;
+    border: 1px solid black;
+    /* div는 block요소라서 한줄을 모두 쓴다. 공간을 공유하지 않음. */
+    /* display: inline; 를 적용하면 inline은 가로 세로 길이를 
+    적용할 수 없기 때문에 페이지상에 나타나지 않음.*/
+    margin: 10px;
+    display: inline-block;
+}

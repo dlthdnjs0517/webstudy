@@ -1,0 +1,40 @@
+i ++ vs ++ i
+후위 연산자 vs 전위 연산자
+
+let i =0;
+i++; // 값 0
+i // 값 1 
+
+증가시키기 전 값을 출력 (0)
+증가시킨 후의 값을 출력 (1)
+
+
+let i =5;
+>undefined
+let result = i ++;
+>undefined
+result
+>5
+
+result를 출력하면 i =5인 시점을 기억하고 영원히 5만 출력함.
+i의 값이 6으로 출력되어도 result는 영원히 5임.
+result 를 업데이트 하고 싶으면 result = result+ i;
+
+
+//result 값 5 + 업데이트한 i 값 6 = 11이 출력됨.
+
+const // 상수를 저장할 때 사용하는 변수. 업데이트 불가.
+let //업데이트 가능한 값을 저장하는 변수.
+
+java script hardrules:
+
+camel case, snake case: 일반적으로 이용하는 방법은 camel case.
+ex) 변수명 currentdate 
+snake case : current_date
+camel case : currentDate
+
+변수 명명의 좋은 예 : let isGameOver =  true;
+의미있게 명명하는 것이 중요함
+
+퀴즈 오답 : let isHappy = 'true'; // true 라는 값을 isHappy에 저장
+let isHappy = true; // boolean 값 저장

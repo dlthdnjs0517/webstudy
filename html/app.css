@@ -1,0 +1,19 @@
+h2 {
+    color: #529fbd;
+    background-color: rgb(89, 151, 0);
+    /*rgb, 16진법 #ffff00 --> full red full green 0 blue*/
+}
+
+button {
+    color: magenta;
+    background-color: azure;
+}
+
+p {
+    color: deeppink;
+    background-color: palegreen;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+}

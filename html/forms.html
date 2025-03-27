@@ -1,0 +1,132 @@
+<!--the form element "represents a document section 
+containing interactive controls for submitting information
+한마디로 비밀번호 입력란에 입력된 데이터들을 한데 모아서 어디로 보낼지 라벨을 붙인 컨테이너"
+&& 제출한 내용을 어느곳으로 보낼지에 대한 지시-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Forms demo</h1>
+    <form action="/lol">
+        <!--form을 제출하면 HTTP request will be sent-->
+        <!-- action: where the request goes to -->
+        <!--작동하지 않는 버튼, type 값을 button으로 지정해놓아서 제출 안됨
+     (type의 default 값은 submit임.)-->
+        <!-- 원하는 항목이 다 채워졌을 경우 서버에 넘기고 싶다면 해당 부분들만 form
+      안으로 넣을 것 !! 연습문제에서 해당 부분을 간과하여 한번에 테스트를 통과하지 못함 -->
+
+        <button type="button">please do not submit the form</button>
+
+        <p><label for="username">Enter a username</label>
+
+            <input id="username" type="text" placeholder="username">
+        </p>
+        <p><label for="passowrd">Enter a password</label>
+            <input id="passowrd" type="password" name="username">
+        </p>
+        <input type="button">
+        <p><label for="color">choose a color</label>
+            <input id="color" type="color">
+
+        </p>
+        <button>in the middle</button>
+        <p><input type="time"></p>
+
+        <p> <label for="number">enter a number</label>
+            <input id="number" type="number">
+            <input id="number" type="number" min="1" max="10">
+
+        </p>
+        <button>submit</button><!--제출가능한 버튼 1-->
+
+        <input type="submit" value="Click me"> <!--제출가능한 버튼 2, 비추-->
+
+    </form>
+    <hr>
+    <button>not inside the form</button><!--form 밖에 있어서작동 안하는 버튼-->
+    <h3>search google</h3>
+    <form action="https://www.google.com/search">
+        <input type="text" name="q">
+        <!--name 속성은 form이 제출된 후 서버에서 form 데이터를 참조하기 위해 사용됨.-->
+        <button>Search google</button>
+    </form>
+    <h3>search naver</h3>
+    <form action="https://search.naver.com/search.naver">
+        <input type="text" name="query">
+        <button>Search naver</button>
+    </form>
+    <h3>search youtube</h3>
+    <form action="https://www.youtube.com/results">
+        <input type="text" name="search_query">
+
+        <p> button 구문을 없애도 enter로 검색이 가능하다 </p>
+    </form>
+
+    <h2>More Inputs</h2>
+    <!--radio 값은 같은 name을 가진 선택지 중 하나만을 선택하는 버튼-->
+    <form action="/birds">
+        <input type="checkbox" name="agree_tos" id="agree" checked>
+        <label for="agree">I agree to everything</label>
+        <p>
+            <label for="xs">XS</label>
+            <input type="radio" name="size" id="xs" value="xs">
+            <!--value는 서버에 제출되는 값-->
+            <label for="s">S</label>
+            <input type="radio" name="size" id="s" value="s">
+            <label for="m">m</label>
+            <input type="radio" name="size" id="m" value="m">
+        </p>
+        <p>
+            <label for="">please select an Entree</label>
+            <select name="meal" id="meal">
+                <option value="fish">fish</option>
+                <option value="veg">vegetarian</option>
+                <option value="steak" selected>steak</option>
+
+            </select>
+        </p>
+        <p>
+            <label for="cheese">Amount of Cheese</label>
+            <!-- label은 폼의 양식에 이름을 붙이는 태그임. 주요 속성은 for-->
+            <!-- for에 대입되는 값과 id를 연결함. -->
+            <input type="range" id="cheese" min="1" max="10" value="4" name="cheese">
+        </p>
+        <p>
+            <label for="request">Any Special Request?</label>
+            <textarea id="request" rows="10" cols="10" name="request1" placeholder="Type something here"></textarea>
+        </p>
+        <button>submit</button>
+    </form>
+    <h2>Validations demo</h2>
+    <form action="/dummy">
+        <label for="first">Enter First name</label>
+        <input type="text" name="first" id="first" required>
+        <p>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" minlength="3" maxlength="15" required>
+        </p>
+        <p>
+            <input type="email" name="" id="" required>
+        </p>
+        <p>
+            <input type="url" name="" id="">
+        </p>
+        <button>submit</button>
+
+
+
+
+
+    </form>
+</body>
+<!--결과물
+file:///birds?agree_tos=on&meal=steak&cheese=4&request1=sss
+id와 for 값이 대응되는 것 && name은 서버에 넘겨지는 이름 -->
+
+</html>

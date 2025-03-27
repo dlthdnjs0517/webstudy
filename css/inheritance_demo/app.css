@@ -1,0 +1,21 @@
+body {
+    color: purple;
+}
+
+/* h2는 지정된 바가 없으므로 body에게서 상속받은 purple 적용 */
+section {
+    color: aqua;
+}
+
+/* 가장 가까운 부모인 section에게서 aqua를 지정받았으므로 아쿠아색 적용 */
+
+form {
+    color: greenyellow;
+}
+
+button,
+input {
+    color: inherit;
+}
+
+/* 상속을 받지 못하는 요소도 있음. ex)border */

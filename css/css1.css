@@ -1,0 +1,96 @@
+body {
+    background-color: #f7e1d7
+}
+
+button {
+    font-size: 30px;
+    background-color: #bde0fe;
+}
+
+h1,
+h2 {
+    color: #341cbb;
+}
+
+#signup {
+    /* id요소 태그 */
+    background-color: #264653;
+    color: #edafb8;
+}
+
+span {
+    color: #a2d2ff;
+}
+
+.tag {
+    /* class요소 태그 */
+    background-color: #fb6f92;
+    color: #0a9396;
+}
+
+.post a {
+    font-weight: 700;
+    text-decoration: none;
+}
+
+section span a {
+    color: #390099;
+}
+
+input[type="password"] {
+    color: greenyellow;
+}
+
+a[href="google"] {
+    color: #1d3557;
+}
+
+button:hover {
+    background-color: #e63946;
+    color: #f1faee;
+}
+
+
+
+a:hover {
+    text-decoration: underline;
+}
+
+.post button:active {
+    background-color: #0a9396;
+}
+
+h2::first-letter {
+    font-size: 50px;
+}
+
+p::first-line {
+    color: purple;
+}
+
+p::selection {
+    color: #ffd60a;
+}
+
+/* cascade 원리로 인해 나중에 오는 라인이 유효함.
+ex) h1{
+color:red;
+}
+ h1{
+ color:purple'
+}
+ 이면 나중에 온 purple이 유효함.*/
+
+.post button:hover {
+    background-color: red;
+    color: #fb6f92;
+}
+
+button:hover {
+    background-color: olive;
+    font-size: 10px;
+}
+
+/* 해당 두 스타일 모두 같은 요소에 적용될 수 있음 
+브라우저가 더 구체화된 스타일을 적용(수학적인 계산을 통해 산출뒤 적용)
+구체도 id>>class>element */

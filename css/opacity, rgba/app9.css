@@ -1,0 +1,23 @@
+section {
+    width: 500px;
+    height: 500px;
+    background-color: magenta;
+}
+
+#rgba {
+    width: 50%;
+    height: 50%;
+    background-color: rgba(82, 235, 192, 0.596);
+    /* alpha element: 투명도를 나타냄. 0은 완전  투명, 1은 완전 불투명
+background color 만 투명해지고, text 같은 요소는 영향이 X */
+}
+
+#opacity {
+    /* 요소 전체가 투명해짐 */
+    width: 50%;
+    height: 50%;
+    background-color: yellow;
+    opacity: 0.3;
+    /*0에 가까울수록 투명도 up*/
+
+}

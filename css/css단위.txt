@@ -1,0 +1,44 @@
+Relative Unit(상대적인 단위)
+1. % : width나 height 설정 시 많이 사용됨.
+
+ex> width:50% 일때의 의미 = 부모의 width의 절반을 의미.
+line-height font size에 따라 달라지는, 요소의 세로 길이를 의미.
+
+2. em: 부모의 font 사이즈에 따라 값을 설정.
+주로 button 같은 곳에 쓰이는 것 같다.
+ex1)
+부모 font size : 100px,
+자식 font size : 2em (=200px)
+
+부모 font size : 100px,
+자식 font size : 0.8em(=80px) 
+
+단점: 목록을 중첩(nest)시킬수록 크기가 너무 커지거나, 작아짐.
+
+ex2) 
+부모 font size : 100px,
+자식 font size : 2em (=200px) // 글꼴의 em은 부모요소의 font size에 따라 좌우됨.
+margin-left : 1em(=200px) // 여백의 em은 font size에 따라 좌우됨.
+
+
+3. rem: 문서 전체가 하나의 font size에 따라 좌우됨.(root html element에 따라)
+ex)
+html {
+    font-size: 30px;
+}
+#rems h2{
+    font-size: 3rem; // 90px font-size. 부모의 font size와는 무관.
+}
+
+
+
+
+
+
+div: generic container for flow content.
+*flow content: text,embedded contents.
+*임베디드 콘텐츠: 웹 페이지에 외부 콘텐츠를 삽입하는데 사용되는 html 태그.
+id,class와 같은 속성들을 활용하여 구역을 나누고 기능을 구현할 수 있다.
+
+
+section: 
