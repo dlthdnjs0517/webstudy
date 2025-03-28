@@ -1,0 +1,59 @@
+object  = 순서 중요하지 않음. label로 어떤 내용인지 판별하기 쉽게 구성되어 있음.
+key-value 쌍 값으로 구성되어 있음.
+pair로 이루어져 있다.
+
+property -> (key : value)
+(object literal : key-value)
+ 
+const years = {1999: "good", 2020:"bad"};
+years["1999"] // 결과값 'good'
+
+key 접근법)
+
+javascript 에서 숫자로 시작하는 속성은 점 표기법(years.1999) 대신 대괄호 표시법
+(years.["1999"])로 접근해야 하지만! 일반적으로는 필요하지 않는다.
+years[1999]는 toString() 변환에 의해 문자열로 강제 변환된다.
+
+
+문자로 시작하는 키값은 "" 필수. 그렇지 않으면 변수로 인식해 버림.
+선언된 변수와 섞어 쓰는 방법도 있음. 
+
+ex) let mike =  1999;
+	years[mike(선언된 변수)] // 결과 : 'good'
+
+예제)
+
+const restaurant = {
+    name: 'Ichiran Ramen',
+    address: `${Math.floor(Math.random() * 100) + 1} Johnson Ave`,
+    city: 'Brooklyn',
+    state: 'NY',
+    zipcode: '11206',
+}
+
+let fullAddress = restaurant['address'] +", " + restaurant['city']+ ", "+ restaurant['state']+" "+ restaurant['zipcode'];
+
+결과값: "64 Johnson Ave, Brooklyn, NY 11206"
+
+value값 바꾸는 추가하거나 바꾸는 법:
+
+midterms
+{danielle: 96, thomas: 78}
+midterms.thomas = 79;
+79
+midterms.thomas
+79
+midterms['danielle'] = 'A';
+'A'
+midterms.danielle
+'A'
+midterms.ezra = 'B+';
+'B+'
+midterms
+{danielle: 'A', thomas: 79, ezra: 'B+'}
+
+<ARRAYS + OBJECTS>
+
+intimidating  -> 겁을 주는
+array와 object가 nested된 구조가 많다.
+
