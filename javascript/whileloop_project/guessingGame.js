@@ -14,19 +14,24 @@ while (!max) {
 const targetNum = Math.floor(Math.random() * max) + 1;
 console.log(targetNum);
 
-let guess = parseInt(prompt("enter your first guess!"));
+let guess = prompt("enter your first guess!");
 let attempts = 1;
 while (parseInt(guess) !== targetNum) {
 	if (guess === 'q') break;
-	attempts++;
+	guess = parseInt(guess)
 	if (guess > targetNum) {
 		guess = prompt("TOO high! Enter a new guess");
+		attempts++;
+	} else if (guess < targetNum) {
+		guess = prompt("TOO low! Enter a new guess");// 잘못된 타입 값을 입력해도 해당 문구가 나옴.
+		attempts++;
 	} else {
-		guess = prompt("TOO low! Enter a new guess");
+		guess = prompt("Invalid guess. please enter a number ir 'q' to quit");
 	}
 }
 if (guess === 'q') {
 	console.log("OK,YOU QUIT!")
+} else {
+	console.log("CONGRATS YOU WIN!");
+	console.log(`you got it! It took you ${attempts} guesses`);
 }
-console.log("CONGRATS YOU WIN!");
-console.log(`you got it! It took you ${attempts} guesses`);
