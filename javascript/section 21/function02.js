@@ -81,4 +81,53 @@ const myMath = {
 //활용예시 > myMath.PI, myMath.cube(3) .. etc
 //myMath["cube"](4) -> 64
 
+//4)  ****** THIS ******* 진짜 중요 !!!!!!!
 
+const dog = {
+	name: 'Mangchi',
+	color: 'white',
+	breed: 'Spitz',
+	woof() {
+		console.log(`${this.name} says Woooof!!`);
+	}
+}
+//this 키워드가 이제부터 강아지라는 객체를 가리킨다.여러특성에 접근할 때 유용.
+//dog라는 객체에 color 라는 특성이 있음. 해당 특성에 접근하려고 this.를 씀.
+//this.특성 --> 이 메서드가 정의하는 객체를 가리킴.
+
+const woof2 = dog.woof; // woof2는 함수를 저장한 변수, 즉 woof2는 함수.
+//-> 결과값: "says Wooooof!!"
+//dog.woof()는 'dog'라는 객체의 '함수'를 호출함
+//woof2의 this는 window 객체를 가리킴.(default 값)
+//함수의 인자로 무엇을 받든지 '.'의 왼쪽을 가리킴.
+
+//예제
+let hen = {
+	name: 'Helen',
+	eggCount: 0,
+	layAnEgg() {
+		this.eggCount += 1;
+		return 'EGG';
+	}
+}
+//console.log('EGG') ->얘는 값을 출력만 하고 값을 다시 사용할 수는 없음.
+//return 'EGG' -> 메서드 실행이 끝난 후 값을 반환,메서드를 호출한 곳에서 사용 가능.
+//즉, 메서드가 호출될때마다 'egg'라는 값을 반환해야 하기 때문에 return 이 사용됨.
+
+//5) try & catch
+
+// try {
+// 	hello.toUpperCase();//오류 발생 코드
+// } catch {
+// 	//뭔가 잘못되어서 try안에서 예외나 오류가 나왔을 때 실행하는 코드 블록
+// 	console.log("ERROR!!!")
+// }
+
+function yell(msg) {
+	try {
+		console.log(msg.toUpperCase().repeat(3));
+		// yell(34234) 처럼 문자열이 아닌 것을 인자로 받을 경우 오류 발생
+	} catch (e) {
+		console.log('please pass a string next time!')
+	}
+}
