@@ -24,6 +24,7 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 numbers.filter(n => {
 	return n < 10
 }) // 결과값 [1,2,3,4,5,6,7,8,9]
+//filter는 인자(argument)로 함수를 받는다 filter(callback funtion())이렇게
 
 const leaders = [
 	{
