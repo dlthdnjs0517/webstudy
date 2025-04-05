@@ -1,0 +1,48 @@
+DOM: 웹페이지를 구성하는 javascript 객체들의 집합
+문서 객체 구조를 파악하는 명령어 : 문서 객체 구조 출력 가능
+
+개발자도구 > console.dir()
+()안에 있는 요소의 상호작용 가능한 객체의 속성을 나열한다.
+구조적인 포맷으로 나타내는 경우가 많다.
+
+2) getElementById: document내에 있는 요소를 객체형태로 리턴되게끔 하는 명령어
+
+ex) document.getElementById('toc(id 이름)')
+
+결과값: 
+	<div class="toctitle" lang="en" dir="ltr">
+            <h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span>
+        </div>
+	const toc = document.getElementById('toc');
+	console.dir(toc)
+	> div#toc(오브젝트 형태로 나타난 객체의 콘텐츠)
+
+!! id 이름으로만 검색 가능하고 class 이름으로는 탐색 불가능
+값을 찾을 수 없을 경우 : null 로 표기됨
+
+3) getElementsByTagName
+()안에 해당하는 태그의 모든 요소를 찾는 방식
+
+ex) const allImges = document.getElementsByTagName('img');
+	allImges[1] // check reference to the element
+	>결과값 :
+	<img id="banner" src="https://images.unsplash.com/photo-1563281577-a7be47e20db9?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80" alt="">
+
+	allImges 는 배열은 아니다. 대신 for..of은 가능하다.
+	반복 가능한 집합이지만 배열은 아님.
+
+4)HTMLCollection
+element(in javascript) : HTML 요소들의 집합. 
+어떠한 기준으로 선택된 요소들을 포함한 객체들
+document.getElementsByTagName('img')은 HTMLCollection을 반환한다.
+
+5) getElementsByClassName
+ getElementsByTagName 처럼 결과값이 HTMLCollection의 형태로 나옴.
+
+
+6) document.querySelector() 
+클래스,태그이름,id이름을 통해 element를 반환할 수 있는 명령어
+단, 요소 중 가장 첫번째로 일치하는 값만 반환한다.
+
+7) document.querySelectorAll()
+6번과 같지만, 일치하는 모든 값을 반환한다.
