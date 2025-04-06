@@ -43,6 +43,18 @@ document.getElementsByTagName('img')은 HTMLCollection을 반환한다.
 6) document.querySelector() 
 클래스,태그이름,id이름을 통해 element를 반환할 수 있는 명령어
 단, 요소 중 가장 첫번째로 일치하는 값만 반환한다.
+ex) 
+	document.querySelector('h1')
+	--> DOM에서 첫번째 h1요소를 찾고 그 참조를 반환한다.
+	또한, 해당 코드는 한번만 실행되어 이 시점의 결과를 바로 출력한다.
+
+	const h1 = document.querySelector('h1')
+	console.dir(h1)
+	--> 변수에 저장해두면, 나중에 여러번 해당 요소에 접근하거나 다양한 조작가능
+	스타일을 바꾸거나 , 이벤트를 추가할때마다 h1을 재사용할 수 있음
+	즉, 반복적으로 사용하거나 후속작업을 수행할 때 유리하다.
+
 
 7) document.querySelectorAll()
 6번과 같지만, 일치하는 모든 값을 반환한다.
+

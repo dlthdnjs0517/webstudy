@@ -1,0 +1,12 @@
+1) .innerText .textContent
+
+document.querySelector('p').textContent
+<p> 요소 안에 있는 모든 글자를 불러옴
+
+만약 elements 에서 display: none; 을 적용하고 다시
+.innerText 와 . textContent의 결과 값이 달라진다.
+
+.innerText : display:none을 적용한 글자가 보이지 않음
+.textContent : display:none을 적용한 글자가 보임
+
+
