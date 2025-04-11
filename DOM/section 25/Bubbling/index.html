@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbling</title>
+
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <section onclick="alert('section clicked')">
+        <p onclick="alert('paragraph clicked')">
+            I am a paragraph:
+            <button onclick="alert('button clicked')">Click</button>
+            <!-- 이벤트 자체가 이 버튼에서 버블링됨
+            GPT: 자식요소에서 이벤트가 발생하면, 부모요소->최상위 요소로 순차적으로 
+            전달되는 현상 -->
+        </p>
+        <!--한 항목의 버튼을 눌러도 다른 alert가 활성화 됨 -->
+    </section>
+
+
+
+
+    <div id="container">
+        Click To Hide
+        <button id="changeColor">Change Color</button>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
