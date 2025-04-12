@@ -30,12 +30,11 @@ p2.addEventListener("click", () => {
 			gameOver = true;
 		}
 		secondSpan.textContent = p2Score;
-		//innerText는 display:none일 경우 무시됨.
-		//목표점수에 도달하면 클릭을 하지 못하게 설정함
 	}
 })
 scoreSelect.addEventListener('change', function () {
-	//!!!!화살표 함수 안에서 this는 상위 스코프의 this를 따라감!!!!
+	//!!!!화살표 함수 안에서 this는 상위 스코프의 this를 따라감!!!!(쓰면 안됨)
+	//그래서 undefined로 떴던 것
 	winScore = parseInt(this.value);
 	reset();
 })
