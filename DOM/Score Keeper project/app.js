@@ -17,6 +17,10 @@ p1.addEventListener("click", () => {
 		p1Score += 1;
 		if (p1Score === winScore) {
 			gameOver = true;
+			firstSpan.classList.add('has-text-success');
+			secondSpan.classList.add('has-text-danger');
+			p1.disabled = true;
+			p2.disabled = true;
 		}
 		firstSpan.textContent = p1Score;
 		//innerText는 display:none일 경우 무시됨.
@@ -28,6 +32,10 @@ p2.addEventListener("click", () => {
 		p2Score += 1;
 		if (p2Score === winScore) {
 			gameOver = true;
+			secondSpan.classList.add('has-text-success');
+			firstSpan.classList.add('has-text-danger');
+			p1.disabled = true;
+			p2.disabled = true;
 		}
 		secondSpan.textContent = p2Score;
 	}
@@ -47,4 +55,8 @@ function reset() {
 	p2Score = 0;
 	firstSpan.textContent = 0;
 	secondSpan.textContent = 0;
+	firstSpan.classList.remove('has-text-success', 'has-text-danger');
+	secondSpan.classList.remove('has-text-success', 'has-text-danger');
+	p1.disabled = false;
+	p2.disabled = false;
 }
