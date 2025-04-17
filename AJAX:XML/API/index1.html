@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fetch API</title>
+</head>
+
+<body>
+	<pre><code>
+	fetch("https://swapi.info/api/people/1")
+	.then(res => {
+		console.log("fulfilled!", res)
+		return res.json()
+	})
+	.then(data => {
+		console.log(data);
+		return fetch("https://swapi.info/api/people/2")
+	})
+	.then(res => {
+		console.log("SECOND REQUEST FULFILLED"), res;
+
+	})
+
+	.catch(e => {
+		console.log("ERROR!!", e)
+	})
+	</code></pre>
+	<pre>
+	fetch("https://swapi.info/api/people/1")
+	fetch()는 비동기 HTTP 요청을 보내는 함수야.
+	여기선 Star Wars API(swapi.info)에 첫 번째 사람(people/1) 데이터를 요청.
+
+	.then(res => { ... })
+	첫 번째 요청이 성공하면(resolved) 실행.
+	res는 응답(Response) 객체이고, 아직 데이터(body)는 읽지 않은 상태야.
+	console.log("fulfilled!", res) → 응답 정보를 로그로 확인.
+
+	</pre>
+	<script src="app1.js"></script>
+</body>
+
+</html>
