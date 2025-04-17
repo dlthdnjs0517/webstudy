@@ -18,7 +18,32 @@ const getStarWarsPerson = async (id) => {
 		console.log("Error", e);
 	}
 }
-
-
 getStarWarsPerson(5);
 getStarWarsPerson(10);
+
+// ===============================
+const jokes = document.querySelector('#jokes');
+const btn = document.querySelector('button');
+const addNewJoke = async () => {
+	const jokeText = await getDadJoke();
+	const newLI = document.createElement('li')
+	newLI.append(jokeText);
+	jokes.append(newLI)
+}
+const getDadJoke = async () => {
+	try {
+		const config = { headers: { Accept: 'application/json' } }
+		//header 따로 지정
+		const res = await axios.get('https://icanhazdadjoke.com/', config)
+		//공식: axios.get(url, config)
+		//url → 요청을 보낼 주소 (필수)
+		// config → 헤더, 파라미터, 인증, 타임아웃 등 각종 옵션 설정 (선택)
+		return res.data.joke
+	}
+	catch (e) {
+		return "no jokes avaliable, sorry"
+	}
+
+}
+btn.addEventListener('click', addNewJoke)
+
