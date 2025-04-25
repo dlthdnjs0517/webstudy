@@ -1,0 +1,25 @@
+> pwd
+현재 위치에 대한 정보를 주는 zsh 명령어
+> cd ..
+상위 폴더로 가기
+> 절대 경로: "cd /"  , "cd ~"
+절대 경로:
+루트 디렉토리에서 /로 시작한다. 하나의 위치로 이동하기 위한 완벽한 방법, 어디서든 실행 가능
+ex) pwd 를 입력했을때 /Users 에 있다고 가정한다.
+desktop 폴더 안에 있는 WEB 폴더로 이동하고 싶을때,
+cd /Users/Desktop/WEB
+이라는 명령어를 입력하면, 내가 desktop 폴더에 접속해있지 않아도 web 폴더로 이동 가능하다.
+상대경로: 
+현재 위치에 따라 다름.
+ex) pwd -> Users/Desktop/WEB/JAVASCRIPT/index.html
+일때, web 내부에 있는 CSS 파일로 가고 싶다 하면:
+cd ../../CSS 
+../는 한단계 위의 디렉토리로 이동하는 명령어
+> mkdir + 파일이름
+새로운 파일을 생성하는 명령어
+> mkdir ../ + 파일이름
+현재 위치 보다 한단계 상위 폴더에 폴더를 만드는 명령어
+> mkdir dogs/samoyed bird(pwd -> pets)
+dogs 라는 폴더 안에 samoyed 라는 파일 생성과 동시에 pets 내부에 bird 파일 생성
+> man + 키워드
+키워드에 관한 메뉴얼을 제공, 플래그를 제공한다. 
