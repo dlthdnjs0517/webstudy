@@ -8,13 +8,17 @@ const app = express(); //express를 실행하여 return값을 변수에 저장
 // }); //요청과 응답 사이에서 거쳐가는 함수들
 
 app.get('/', (req, res) => {
-	res.send('this is the homepage!')
+	res.send('Welcome to the homepage!')
 })
 app.get('/r/:subreddit', (req, res) => {
-	console.log(req.params);
-	res.send('this is a subreddit!');
+	const { subreddit } = req.params;
+	res.send(`<h1> Browsing the ${subreddit} subreddit</h1>`);
 })
-
+app.get('/r/:subreddit/:postId', (req, res) => {
+	const { subreddit, postId } = req.params;//키-값 쌍이 있는 req.params
+	res.send(`<h1> Viewing post Id: ${postId} and ${subreddit} subreddit</h1>`);
+})
+// : 은 변수이다.
 
 app.post('/cats', (req, res) => {
 	res.send('Post request to /cats!!!! this is different than a get request!')
@@ -26,6 +30,15 @@ app.get('/cats', (req, res) => {
 app.get('/dogs', (req, res) => {
 	res.send("WOOF!");
 })
+
+app.get('/search', (req, res) => {
+	const { q } = req.query;
+	if (!q) {
+		res.send('Nothing found If Nothing Search! ');
+	}
+	res.send(`<h1> Search results for: ${q}</h1>`);
+})
+
 
 app.get('*splat', (req, res) => {
 	res.send(`I don't know that path!`);
