@@ -8,7 +8,7 @@ const app = express(); //express를 실행하여 return값을 변수에 저장
 // }); //요청과 응답 사이에서 거쳐가는 함수들
 
 app.get('/', (req, res) => {
-	res.send('Welcome to the homepage!')
+	res.send('Welcome to the homepage!');
 })
 app.get('/r/:subreddit', (req, res) => {
 	const { subreddit } = req.params;
