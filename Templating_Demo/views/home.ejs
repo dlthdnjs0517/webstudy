@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('partials/head') %>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Home</title>
-</head>
+	<body>
+		<%- include('partials/navbar') %>
+			<h1>The home page <%= 2 + 3 %>
+			</h1>
+			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, mollitia doloremque tenetur deleniti,
+				perspiciatis enim architecto ex laudantium odio odit atque beatae, illo aut ut vel pariatur earum quod!
+				Ad.
+			</p>
 
-<body>
-	<h1>The home page <%= 2 + 3 %></h1>
-	<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, mollitia doloremque tenetur deleniti,
-		perspiciatis enim architecto ex laudantium odio odit atque beatae, illo aut ut vel pariatur earum quod! Ad.</p>
-
-	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero asperiores nulla quam reiciendis, aut modi natus
-		odio culpa, labore numquam ducimus inventore expedita neque dignissimos, cum saepe corporis cumque voluptatem?
-	</p>
-</body>
-
-</html>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero asperiores nulla quam reiciendis, aut modi
+				natus
+				odio culpa, labore numquam ducimus inventore expedita neque dignissimos, cum saepe corporis cumque
+				voluptatem?
+			</p>
+			<%- include('partials/footer') %>
