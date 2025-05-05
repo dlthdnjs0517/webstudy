@@ -3,8 +3,10 @@ const app = express();
 const path = require('path');
 const redditData = require('./data.json');
 
+app.use(express.static(path.join(__dirname, 'public')))//절대경로 설정
+
 app.set('view engine', 'ejs');//확장자가 .ejs 임을 명시하는 문장
-app.set('views', path.join(__dirname, '/views'))
+app.set('views', path.join(__dirname, '/views'))//절대경로 설정
 
 app.get('/', (req, res) => {
 	res.render('home');//home.ejs 라고 작성하지 않아도 됨
