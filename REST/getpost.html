@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Get and Post</title>
+</head>
+
+<body>
+	<h1>GET AND POST REQUESTS</h1>
+	<h2>GET</h2>
+	<form action="/tacos" method="get">
+		<input type="text" name="meat">
+		<input type="number" name="qty">
+		<button>Submit</button>
+	</form>
+	<hr>
+	<div> Get 요청은 정보를 가져온 뒤 페이지를 가져와서 화면에 띄운다.
+		Backend에 영향없음.
+	</div>
+	<h2>POST</h2>
+	<form action="/tacos" method="post">
+		<input type="text" name="meat">
+		<input type="number" name="qty">
+		<button>Submit</button>
+	</form>
+	<hr>
+	<div> post는 회원가입 같이 계정 등록, 생성, 삭제 댓글 달기 같은
+		데이터를 보낼 때 쓴다.
+	</div>
+</body>
+
+</html>
