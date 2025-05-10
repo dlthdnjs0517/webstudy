@@ -1,0 +1,91 @@
+Mongodb 접속 명령어: mongo
+잊지말것
+
+
+db 명령어
+---------
+1) create 부문
+
+
+db
+show dbs <-- 전체 db 목록을 보여주는 명령어
+
+use + db명 <-- 사용할 데이터베이스로 switch하는 명령어 (특정 db 선택)
+
+Database <- 폴더
+show collections <-- 테이블 같은 개념(문서들의 집합)
+
+
+-------------
+2) Read 부문 --> 원하는 데이터의 조회
+
+db.collection.find()
+ex) db.dogs.find() dogs의 데이터셋을 전부 조회해서 불러오는 것
+
+db.dogs.find({찾고자하는 속성: 값})
+ex) db.dogs.find({age:3})<-- 여러값을 도출
+	db.dogs.findOne({age:3})<-- 한개만 도출
+
+----------------
+3) Update 부문 --> 데이터 추가&&수정
+
+db.<컬렉션이름>.updateOne(
+  { <조건> },
+  { $set: { <수정할 필드>: <값> } }
+)
+
+ex) db.dogs.updateOne({name:'mangchi'},
+	{$set:{age:11}}
+	)
+
+$set 연산자 : 필드 값을 수정하거나 추가하는 역할을 함.
+
+lastChanged : 현재 날짜를 추가한다.
+
+-------------------
+4) Delete 부문 --> 데이터 삭제
+
+db.collection이름.deleteOne({속성:값}) // 1개만 삭제할떄
+
+ex) db.cats.deleteOne({name:'navi'})
+
+db.collection이름.deleteMany({속성:값}) // 여러개 삭제할떄
+
+ex)db.dogs.deleteMany({isAvailable:true})
+
+모든 집합을 삭제할 때
+db.dogs.deleteMany({})
+
+------------------------
+
+만약 progamer라는 collection이 있고, 
+
+"_id":ObjectId("faker"),
+"name": "Leesanghyuk",
+"position":"Midlane",
+"age": 30,
+"particulars":{
+	hasbrother:true,
+	hasSister:false
+}
+
+라는 데이터 집합이 있다고 했을 때 
+
+db.progamer.find({hasbrother:true})
+--> 아무 결과도 도출되지 않는다
+그러므로
+db.progamer.find({'particulars.hasbrother':true})
+로 조회해야 한다.
+
+-----------------------------
+Mongodb의 연산자
+
+$로 시작한다.
+ex) $or $and ... 
+
+만약 프로게이머 중 나이가 22세를 초과하는 선수들을 찾고 싶다고 하면
+db.progamer.find({qty:{age:{$gt:22}}})
+//$gt: greater than, 초과를 뜻함(기준치를 포함하지 않음)
+$gte: greater than or equal, 이상
+
+
