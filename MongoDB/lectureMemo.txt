@@ -67,7 +67,9 @@ db.dogs.deleteMany({})
 "particulars":{
 	hasbrother:true,
 	hasSister:false
-}
+},
+"teamHistory":'T1',
+"captain":true
 
 라는 데이터 집합이 있다고 했을 때 
 
@@ -88,4 +90,22 @@ db.progamer.find({qty:{age:{$gt:22}}})
 //$gt: greater than, 초과를 뜻함(기준치를 포함하지 않음)
 $gte: greater than or equal, 이상
 
+-----------------------------
+프로게이머들이 지금까지 거쳤던 팀을 기준으로 검색한다고 가정했을때,
+db.progamer.find({teamHistory:{$in:['T1','HLE']}})
 
+$in : 쿼리 조건으로 배열 안의 값들 중 하나라도 해당되면 참으로 간주하는 연산.
+즉, 해당 구문은 teamHistory 중 T1이나 HLE 중 한 팀이라도 속한적이 있는 선수들을 반환한다. 
+
+$nin : $in의 반대 연산자로, 이 리스트에 없는 것을 찾을 때 사용한다.
+
+ex) db.progamer.find({teamHistory:{$in:['DK','BRO','NS','GEN']}})
+DK,BRO,NS,GEN에 한번도 소속되지 않았던 선수들을 반환한다.
+산출 예시) t1에만 소속되어 있던 faker,oner
+
+단!! null도 포함될 수 있다.
+
+-----------------------------
+여러 연산자를 활용한 예시
+db.progamer.find({$or:[{'particulars.hasbrother':true},{age:{$lte:20}}]})
+// 남동생이 있거나 나이가 20이하인 선수들을 return함.
