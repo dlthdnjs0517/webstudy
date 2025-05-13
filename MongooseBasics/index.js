@@ -25,15 +25,19 @@ const rosterSchema = new mongoose.Schema({
 })
 
 const Player = mongoose.model('Player', rosterSchema);
-const faker = new Player({ nickName: 'Faker', birthYear: 1996, team: 'T1', captain: true })
+// const faker = new Player({ nickName: 'Faker', birthYear: 1996, team: 'T1', captain: true })
 
 //node REPL 접속
 // -> faker.save()하면 mongodb에 해당 인스턴스 생성됨.
 
-// Player.insertMany([
-// 	{ nickName: Oner, birthYear: 2002, team: 'T1', captain: false },
-// 	{ nickName: Keria, birthYear: 2002, team: 'T1', captain: false },
-// 	{ nickName: Gumayusi, birthYear: 2002, team: 'T1', captain: false },
-// 	{ nickName: Smash, birthYear: 2006, team: 'T1', captain: false },
-// 	{ nickName: Doran, birthYear: 2000, team: 'T1', captain: false },
-// ])
+Player.insertMany([
+	{ nickName: 'Oner', birthYear: 2002, team: 'T1', captain: false },
+	{ nickName: 'Keria', birthYear: 2002, team: 'T1', captain: false },
+	{ nickName: 'Gumayusi', birthYear: 2002, team: 'T1', captain: false },
+	{ nickName: 'Smash', birthYear: 2006, team: 'T1', captain: false },
+	{ nickName: 'Doran', birthYear: 2000, team: 'T1', captain: false },
+])
+	.then(data => {
+		console.log('it worked!')
+		console.log(data);
+	})
