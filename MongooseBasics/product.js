@@ -42,8 +42,18 @@ const productSchema = new mongoose.Schema({
 
 const Product = mongoose.model('Product', productSchema);
 
-const bike = new Product({ name: 'Bike Helmet', price: 29.99 })
-bike.save()
+const bike = new Product({ name: 'Tire pump', price: 19.50, categories: ['Cycling'] })
+// bike.save()
+// 	.then(data => {
+// 		console.log('it worked!')
+// 		console.log(data);
+// 	})
+// 	.catch(err => {
+// 		console.log('oh no error!')
+// 		console.log(err)
+// 	})
+
+Product.findOneAndUpdate({ name: 'Tire pump' }, { price: -10.99 }, { new: true, runValidators: true })
 	.then(data => {
 		console.log('it worked!')
 		console.log(data);
@@ -52,3 +62,5 @@ bike.save()
 		console.log('oh no error!')
 		console.log(err)
 	})
+//database의 특성상 유효성 검사는 create에만 이루어져서 -10.99가 적용되어 버림 
+//update 할때도 유효성 검사 시행-> runValidators:true 로 설정하기
