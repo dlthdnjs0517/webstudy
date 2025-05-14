@@ -57,10 +57,14 @@ productSchema.methods.toggleOnSale = function () {
 	// foundProduct.save() 랑 같은 역할
 }//onSale 항목 토글하는 함수
 
-productSchema.methods.addCategory = function (newCat) {
-	this.categories.push(newCat);
-	return this.save();
+productSchema.statics.fireSale = function () {
+	return this.updateMany({}, { onSale: true, price: 0 })
 }
+
+// productSchema.methods.addCategory = function (newCat) {
+// 	this.categories.push(newCat);
+// 	return this.save();
+// }
 
 const Product = mongoose.model('Product', productSchema);
 
@@ -71,16 +75,18 @@ const Product = mongoose.model('Product', productSchema);
 
 
 
-const findProduct = async () => {
-	const foundProduct = await Product.findOne({ name: 'Bike Helmet' })
-	console.log(foundProduct)
-	await foundProduct.toggleOnSale();
-	console.log(foundProduct)// 특정 product 에 대한 onSale 특성을 토글하는 메서드
-	await foundProduct.addCategory('Outdoors')
-	console.log(foundProduct)
-}
+// const findProduct = async () => {
+// 	const foundProduct = await Product.findOne({ name: 'Bike Helmet' })
+// 	console.log(foundProduct)
+// 	await foundProduct.toggleOnSale();
+// 	console.log(foundProduct)// 특정 product 에 대한 onSale 특성을 토글하는 메서드
+// 	await foundProduct.addCategory('Outdoors')
+// 	console.log(foundProduct)
+// }
 
-findProduct();
+Product.fireSale().then(res => { console.log(res) })
+
+// findProduct();
 //결과 :
 //HELLOO !! HI !!! HOWDY!
 //-from Bike Helmet
