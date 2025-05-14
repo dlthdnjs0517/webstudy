@@ -18,7 +18,8 @@ const productSchema = new mongoose.Schema({
 	price: {
 		type: Number,
 		required: true,
-		min: 0
+		min: [0, 'price must be positive ya dodo!']
+		//첫번째 인자에는 적용시킬 최소수량, 두번째 인자는 에러메세지
 	},
 	onSale: {
 		type: Boolean,
@@ -36,13 +37,57 @@ const productSchema = new mongoose.Schema({
 			type: Number,
 			default: 0
 		}
+	},
+	size: {
+		type: String,
+		enum: ['S', 'M', 'L']
+		//enum: 이 필드는 정해진 값 중 하나만 가질수있다,하고 범위를 제한하는 기능을 수행함.
 	}
 
 });
+// productSchema.methods.greet = function () {
+// 	console.log('HELLOO !! HI !!! HOWDY!')
+// 	console.log(`-from ${this.name}`)
+// } 인사 함수용
+
+productSchema.methods.toggleOnSale = function () {
+	this.onSale = !this.onSale;
+	return this.save();
+	// foundProduct.onSale = !foundProduct.onSale
+	// foundProduct.save() 랑 같은 역할
+}//onSale 항목 토글하는 함수
+
+productSchema.methods.addCategory = function (newCat) {
+	this.categories.push(newCat);
+	return this.save();
+}
 
 const Product = mongoose.model('Product', productSchema);
 
-const bike = new Product({ name: 'Tire pump', price: 19.50, categories: ['Cycling'] })
+// const findProduct = async () => {
+// 	const foundProduct = await Product.findOne({ name: 'Bike Helmet' })
+// 	foundProduct.greet();
+// } 인사 함수
+
+
+
+const findProduct = async () => {
+	const foundProduct = await Product.findOne({ name: 'Bike Helmet' })
+	console.log(foundProduct)
+	await foundProduct.toggleOnSale();
+	console.log(foundProduct)// 특정 product 에 대한 onSale 특성을 토글하는 메서드
+	await foundProduct.addCategory('Outdoors')
+	console.log(foundProduct)
+}
+
+findProduct();
+//결과 :
+//HELLOO !! HI !!! HOWDY!
+//-from Bike Helmet
+
+
+
+// const bike = new Product({ name: 'Cycling Jersy', price: 59.50, categories: ['Cycling'], size: 'S' })
 // bike.save()
 // 	.then(data => {
 // 		console.log('it worked!')
@@ -53,14 +98,15 @@ const bike = new Product({ name: 'Tire pump', price: 19.50, categories: ['Cyclin
 // 		console.log(err)
 // 	})
 
-Product.findOneAndUpdate({ name: 'Tire pump' }, { price: -10.99 }, { new: true, runValidators: true })
-	.then(data => {
-		console.log('it worked!')
-		console.log(data);
-	})
-	.catch(err => {
-		console.log('oh no error!')
-		console.log(err)
-	})
+// Product.findOneAndUpdate({ name: 'Tire pump' }, { price: -10.99 }, { new: true, runValidators: true })
+// 	.then(data => {
+// 		console.log('it worked!')
+// 		console.log(data);
+// 	})
+// 	.catch(err => {
+// 		console.log('oh no error!')
+// 		console.log(err)
+// 	})
+//==========================================
 //database의 특성상 유효성 검사는 create에만 이루어져서 -10.99가 적용되어 버림 
 //update 할때도 유효성 검사 시행-> runValidators:true 로 설정하기
