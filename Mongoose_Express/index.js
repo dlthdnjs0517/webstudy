@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override')
 
 const Product = require('./models/product');
 
@@ -18,6 +19,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ exteneded: true }))
 app.use(express.json());
+app.use(methodOverride('_method'))
 
 
 
@@ -41,6 +43,22 @@ app.get('/products/:id', async (req, res) => {
 	const { id } = req.params;
 	const product = await Product.findById(id)
 	res.render('products/show', { product })
+})
+
+app.get('/products/:id/edit', async (req, res) => {
+	const { id } = req.params;
+	const product = await Product.findById(id)
+	res.render('products/edit', { product })
+})
+
+app.put('/products/:id', async (req, res) => {
+	const { id } = req.params;
+	const product = await Product.findByIdAndUpdate(id, req.body, {
+		runValidators: true, new: true
+	});
+	// findById는 개별 특성을 업데이트 하고 유효성 검사를 실행하는 .save를 사용하면 된다.
+	//혹은 runvalidator : true 로 설정하면 됨
+	res.redirect(`/products/${product._id}`);
 })
 
 
